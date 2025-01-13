@@ -1,7 +1,8 @@
 ﻿using Engine.Services;
+using System.ComponentModel;
 namespace Engine.Models
 {
-    public class PlayerAttribute : BaseNotificationClass
+    public class PlayerAttribute : INotifyPropertyChanged
     {
         private int _modifiedValue;
         public string Key { get; }
@@ -14,9 +15,9 @@ namespace Engine.Models
             set
             {
                 _modifiedValue = value;
-                OnPropertyChanged();
             }
         }
+        public event PropertyChangedEventHandler PropertyChanged;
         // Constructor that will use DiceService to create a BaseValue.
         // The constructor this calls will put that same value into BaseValue and ModifiedValue
         public PlayerAttribute(string key, string displayName, string diceNotation)

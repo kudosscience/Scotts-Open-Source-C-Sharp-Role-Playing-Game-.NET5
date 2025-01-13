@@ -1,11 +1,12 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using Engine.Factories;
 using Engine.Models;
 using Engine.Services;
 namespace Engine.ViewModels
 {
-    public class CharacterCreationViewModel : BaseNotificationClass
+    public class CharacterCreationViewModel : INotifyPropertyChanged
     {
         private Race _selectedRace;
         public GameDetails GameDetails { get; }
@@ -15,7 +16,6 @@ namespace Engine.ViewModels
             set
             {
                 _selectedRace = value;
-                OnPropertyChanged();
             }
         }
         public string Name { get; set; }
@@ -25,6 +25,7 @@ namespace Engine.ViewModels
             GameDetails.Races.Any();
         public bool HasRaceAttributeModifiers =>
             HasRaces && GameDetails.Races.Any(r => r.PlayerAttributeModifiers.Any());
+        public event PropertyChangedEventHandler PropertyChanged;
         public CharacterCreationViewModel()
         {
             GameDetails = GameDetailsService.ReadGameDetails();
