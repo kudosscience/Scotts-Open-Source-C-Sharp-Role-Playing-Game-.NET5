@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFUI", "WPFUI\WPFUI.csproj", "{4F91B9A9-632C-4E54-8080-4032D49BF4FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Engine\Engine.csproj", "{A1A206A4-9AEB-434F-A844-040E319D1A0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSCSRPG.Models", "SOSCSRPG.Models\SOSCSRPG.Models.csproj", "{51873C50-9071-4182-8C12-2B58DF8253DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSCSRPG.ViewModels", "SOSCSRPG.ViewModels\SOSCSRPG.ViewModels.csproj", "{DF81FC93-799A-464E-AAD3-5298B1DD3899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSCSRPG.Services", "SOSCSRPG.Services\SOSCSRPG.Services.csproj", "{F9610AC9-FC8D-486F-AECD-F880F8D0B712}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{A1A206A4-9AEB-434F-A844-040E319D1A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1A206A4-9AEB-434F-A844-040E319D1A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1A206A4-9AEB-434F-A844-040E319D1A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51873C50-9071-4182-8C12-2B58DF8253DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51873C50-9071-4182-8C12-2B58DF8253DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51873C50-9071-4182-8C12-2B58DF8253DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51873C50-9071-4182-8C12-2B58DF8253DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF81FC93-799A-464E-AAD3-5298B1DD3899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF81FC93-799A-464E-AAD3-5298B1DD3899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF81FC93-799A-464E-AAD3-5298B1DD3899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF81FC93-799A-464E-AAD3-5298B1DD3899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9610AC9-FC8D-486F-AECD-F880F8D0B712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9610AC9-FC8D-486F-AECD-F880F8D0B712}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9610AC9-FC8D-486F-AECD-F880F8D0B712}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9610AC9-FC8D-486F-AECD-F880F8D0B712}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
