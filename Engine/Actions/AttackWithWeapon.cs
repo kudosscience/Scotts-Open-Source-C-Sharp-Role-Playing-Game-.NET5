@@ -1,6 +1,7 @@
 ﻿using System;
 using Engine.Models;
 using Engine.Services;
+using SOSCSRPG.Core;
 namespace Engine.Actions
 {
     public class AttackWithWeapon : BaseAction, IAction

@@ -1,10 +1,9 @@
-﻿using Engine.Services;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using SOSCSRPG.Core;
 namespace Engine.Models
 {
     public class PlayerAttribute : INotifyPropertyChanged
     {
-        private int _modifiedValue;
         public string Key { get; }
         public string DisplayName { get; }
         public string DiceNotation { get; }
