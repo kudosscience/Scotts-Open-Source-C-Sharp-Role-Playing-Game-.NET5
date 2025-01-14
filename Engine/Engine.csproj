@@ -16,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SOSCSRPG.Models\SOSCSRPG.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="GameData\GameDetails.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

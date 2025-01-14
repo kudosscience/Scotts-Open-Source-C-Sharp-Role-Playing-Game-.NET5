@@ -4,10 +4,11 @@ using System.Linq;
 using Engine.Factories;
 using Engine.Models;
 using Engine.Services;
-namespace Engine.ViewModels
+namespace SOSCSRPG.ViewModels
 {
     public class CharacterCreationViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public GameDetails GameDetails { get; }
         public Race SelectedRace { get; init; }
         public string Name { get; init; }
@@ -17,7 +18,6 @@ namespace Engine.ViewModels
             GameDetails.Races.Any();
         public bool HasRaceAttributeModifiers =>
             HasRaces && GameDetails.Races.Any(r => r.PlayerAttributeModifiers.Any());
-        public event PropertyChangedEventHandler PropertyChanged;
         public CharacterCreationViewModel()
         {
             GameDetails = GameDetailsService.ReadGameDetails();
