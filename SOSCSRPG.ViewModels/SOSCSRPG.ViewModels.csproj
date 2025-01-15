@@ -1,21 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Fody" Version="6.9.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" PrivateAssets="All"/>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Engine\Engine.csproj" />
-    <ProjectReference Include="..\SOSCSRPG.Models\SOSCSRPG.Models.csproj" />
-    <ProjectReference Include="..\SOSCSRPG.Services\SOSCSRPG.Services.csproj" />
-  </ItemGroup>
-
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Fody" Version="6.6.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="PropertyChanged.Fody" Version="3.4.0" PrivateAssets="All"/>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\SOSCSRPG.Models\SOSCSRPG.Models.csproj" />
+		<ProjectReference Include="..\SOSCSRPG.Services\SOSCSRPG.Services.csproj" />
+	</ItemGroup>
 </Project>
