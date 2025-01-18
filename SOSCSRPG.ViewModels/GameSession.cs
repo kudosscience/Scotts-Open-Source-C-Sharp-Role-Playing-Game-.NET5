@@ -72,6 +72,7 @@ namespace SOSCSRPG.ViewModels
         }
         [JsonIgnore]
         public Trader CurrentTrader { get; private set; }
+        public PopupDetails InventoryDetails { get; set; }
         [JsonIgnore]
         public bool HasLocationToNorth =>
             CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
@@ -95,6 +96,17 @@ namespace SOSCSRPG.ViewModels
             CurrentWorld = WorldFactory.CreateWorld();
             CurrentPlayer = player;
             CurrentLocation = CurrentWorld.LocationAt(xCoordinate, yCoordinate);
+            // Setup popup window properties
+            InventoryDetails = new PopupDetails
+            {
+                IsVisible = false,
+                Top = 225,
+                Left = 275,
+                MinHeight = 75,
+                MaxHeight = 175,
+                MinWidth = 250,
+                MaxWidth = 400
+            };
         }
         public void MoveNorth()
         {
