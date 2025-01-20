@@ -17,7 +17,7 @@ namespace WPFUI
     {
         private const string SAVE_GAME_FILE_EXTENSION = "soscsrpg";
         private readonly MessageBroker _messageBroker = MessageBroker.GetInstance();
-        private readonly Dictionary<Key, Action> _userInputActions = 
+        private readonly Dictionary<Key, Action> _userInputActions =
             new Dictionary<Key, Action>();
         private GameSession _gameSession;
         private Point? _dragStart;
@@ -68,7 +68,7 @@ namespace WPFUI
         }
         private void OnClick_DisplayTradeScreen(object sender, RoutedEventArgs e)
         {
-            if(_gameSession.CurrentTrader != null)
+            if (_gameSession.CurrentTrader != null)
             {
                 TradeScreen tradeScreen = new TradeScreen();
                 tradeScreen.Owner = this;
@@ -90,30 +90,16 @@ namespace WPFUI
             _userInputActions.Add(Key.Z, () => _gameSession.AttackCurrentMonster());
             _userInputActions.Add(Key.C, () => _gameSession.UseCurrentConsumable());
             _userInputActions.Add(Key.I, () => _gameSession.InventoryDetails.IsVisible = !_gameSession.InventoryDetails.IsVisible);
-            _userInputActions.Add(Key.Q, () => SetTabFocusTo("QuestsTabItem"));
-            _userInputActions.Add(Key.R, () => SetTabFocusTo("RecipesTabItem"));
+            _userInputActions.Add(Key.Q, () => _gameSession.QuestDetails.IsVisible = !_gameSession.QuestDetails.IsVisible);
+            _userInputActions.Add(Key.R, () => _gameSession.RecipesDetails.IsVisible = !_gameSession.RecipesDetails.IsVisible);
             _userInputActions.Add(Key.T, () => OnClick_DisplayTradeScreen(this, new RoutedEventArgs()));
         }
         private void MainWindow_OnKeyDown(object sender, KeyEventArgs e)
         {
-            if(_userInputActions.ContainsKey(e.Key))
+            if (_userInputActions.ContainsKey(e.Key))
             {
                 _userInputActions[e.Key].Invoke();
                 e.Handled = true;
-            }
-        }
-        private void SetTabFocusTo(string tabName)
-        {
-            foreach(object item in PlayerDataTabControl.Items)
-            {
-                if (item is TabItem tabItem)
-                {
-                    if (tabItem.Name == tabName)
-                    {
-                        tabItem.IsSelected = true;
-                        return;
-                    }
-                }
             }
         }
         private void SetActiveGameSessionTo(GameSession gameSession)
@@ -150,7 +136,7 @@ namespace WPFUI
                 new YesNoWindow("Save Game", "Do you want to save your game?");
             message.Owner = GetWindow(this);
             message.ShowDialog();
-            if(message.ClickedYes)
+            if (message.ClickedYes)
             {
                 SaveGame();
             }
@@ -165,14 +151,22 @@ namespace WPFUI
                 };
             if (saveFileDialog.ShowDialog() == true)
             {
-                SaveGameService.Save(new GameState(_gameSession.CurrentPlayer, 
-                    _gameSession.CurrentLocation.XCoordinate, 
+                SaveGameService.Save(new GameState(_gameSession.CurrentPlayer,
+                    _gameSession.CurrentLocation.XCoordinate,
                     _gameSession.CurrentLocation.YCoordinate), saveFileDialog.FileName);
             }
         }
         private void CloseInventoryWindow_OnClick(object sender, RoutedEventArgs e)
         {
             _gameSession.InventoryDetails.IsVisible = false;
+        }
+        private void CloseQuestsWindow_OnClick(object sender, RoutedEventArgs e)
+        {
+            _gameSession.QuestDetails.IsVisible = false;
+        }
+        private void CloseRecipesWindow_OnClick(object sender, RoutedEventArgs e)
+        {
+            _gameSession.RecipesDetails.IsVisible = false;
         }
         private void GameCanvas_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
