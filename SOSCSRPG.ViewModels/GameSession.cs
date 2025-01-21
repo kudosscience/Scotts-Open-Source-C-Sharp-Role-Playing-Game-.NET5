@@ -72,6 +72,7 @@ namespace SOSCSRPG.ViewModels
         }
         [JsonIgnore]
         public Trader CurrentTrader { get; private set; }
+        public PopupDetails PlayerDetails { get; set; }
         public PopupDetails InventoryDetails { get; set; }
         public PopupDetails QuestDetails { get; set; }
         public PopupDetails RecipesDetails { get; set; }
@@ -99,6 +100,16 @@ namespace SOSCSRPG.ViewModels
             CurrentPlayer = player;
             CurrentLocation = CurrentWorld.LocationAt(xCoordinate, yCoordinate);
             // Setup popup window properties
+            PlayerDetails = new PopupDetails
+            {
+                IsVisible = false,
+                Top = 10,
+                Left = 10,
+                MinHeight = 75,
+                MaxHeight = 400,
+                MinWidth = 265,
+                MaxWidth = 400
+            };
             InventoryDetails = new PopupDetails
             {
                 IsVisible = false,
